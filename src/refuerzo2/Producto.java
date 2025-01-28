@@ -1,30 +1,43 @@
 package refuerzo2;
 
-public class Producto {
+public abstract class Producto implements Comparable<Producto> {
+    private String codigo;
+    private String nombre;
+    private double precio;
+    private int stock;
 
-	
-	protected int codigo;
-	protected String nombre;
-	protected int precio;
-	protected int proteccion;
-	
-	
-	public Producto(int codigo, String nombre, int precio, int proteccion) {
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.precio = precio;
-		this.proteccion = proteccion;
-	}
+    public Producto(String codigo, String nombre, double precio, int stock) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
 
+    public String getCodigo() {
+        return codigo;
+    }
 
-	@Override
-	public String toString() {
-		return "Producto [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", proteccion=" + proteccion
-				+ "]";
-	}
-	
-	
-	
-	
-	
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    @Override
+    public int compareTo(Producto otro) {
+        return this.codigo.compareToIgnoreCase(otro.codigo);
+    }
+
+    @Override
+    public String toString() {
+        return "Código: " + codigo + ", Nombre: " + nombre + ", Precio: $" + precio + ", Stock: " + stock;
+    }
 }
+
+

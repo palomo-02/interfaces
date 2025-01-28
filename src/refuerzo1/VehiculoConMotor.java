@@ -1,25 +1,38 @@
 package refuerzo1;
 
 abstract class VehiculoConMotor implements Vehiculo {
+    protected int velocidad;
+    protected String marca;
+    protected int Npuertas;
+    private boolean encendido = false;
 
-	protected int velocidad;
-	protected String marca;
-	protected int Npuertas;
+    public VehiculoConMotor(int velocidad, String marca, int npuertas) {
+        this.velocidad = velocidad;
+        this.marca = marca;
+        this.Npuertas = npuertas;
+    }
 
-	public void arrancar() {
+    @Override
+    public void arrancar() {
+        setEncendido(true);
+        System.out.println("El vehículo arranca.");
+    }
 
-		System.out.println("el coche arranca ");
-	}
+    @Override
+    public void parar() {
+        setEncendido(false);
+        System.out.println("El vehículo se para.");
+    }
 
-	public void parar() {
+    public void mostrarEstado() {
+        System.out.println("Estado: " + (encendido ? "Encendido" : "Apagado"));
+    }
 
-		System.out.println("el coche se para ");
-	}
-	
-	public void MostrarEstado() {
+    protected void setEncendido(boolean encendido) {
+        this.encendido = encendido;
+    }
 
-		
-	};
-	
-	
+    public boolean isEncendido() {
+        return encendido;
+    }
 }

@@ -21,4 +21,12 @@ public class Moto extends VehiculoConMotor {
 		System.out.println("moto parado.");
 
 	}
+
+	@Override
+	public String toString() {
+		return "Moto [tipo=" + tipo + ", velocidad=" + velocidad + ", marca=" + marca + ", Npuertas=" + Npuertas + "]";
+	}
+
+	
+	
 }

@@ -20,4 +20,13 @@ public class Coche extends VehiculoConMotor {
 		super.parar();
 		System.out.println("Coche parado.");
 	}
+
+	@Override
+	public String toString() {
+		return "Coche [cilindrada=" + cilindrada + ", velocidad=" + velocidad + ", marca=" + marca + ", Npuertas="
+				+ Npuertas + "]";
+	}
+	
+	
+	
 }

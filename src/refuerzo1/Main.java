@@ -13,7 +13,7 @@ public class Main {
 
 		var sc = new Scanner(System.in);
 
-		int opcion = sc.nextInt();
+		int opcion =0;
 
 		do {
 			mostrarMenu(); // Mostrar el menú de opciones
@@ -23,11 +23,12 @@ public class Main {
 			switch (opcion) {
 			case 1 -> registrarVehiculo(sc); // Registrar un nuevo vehículo
 			case 2 -> mostrarEstados(); // Mostrar el estado de todos los vehículos
-			// case 3 -> arrancarOPararVehiculo(sc); // Arrancar o parar un vehículo
-			case 4 -> System.out.println("Saliendo del programa..."); // Salir
+			case 3 -> arrancarOPararVehiculo(sc); // Arrancar o parar un vehículo
+			case 4->MostrarInfo();
+			case 5 -> System.out.println("Saliendo del programa..."); // Salir
 			default -> System.out.println("Opción no válida. Inténtalo de nuevo.");
 			}
-		} while (opcion != 4);
+		} while (opcion != 5);
 
 		sc.close();
 
@@ -38,7 +39,9 @@ public class Main {
 		System.out.println("1. Registrar un nuevo vehículo (Coche o Moto)");
 		System.out.println("2. Mostrar el estado de todos los vehículos registrados");
 		System.out.println("3. Arrancar o parar un vehículo por su índice");
-		System.out.println("4. Salir del programa");
+		System.out.println("4. mostrar info general");
+		System.out.println("5. salir del programa");
+
 		System.out.print("Selecciona una opción: ");
 	}
 
@@ -57,9 +60,8 @@ public class Main {
 		sc.nextLine();
 
 		System.out.println("introduce la marca del vehiculo");
-		String Marca = sc.nextLine();
+		String Marca = sc.nextLine();//no usar el nextLine con Strings, se repite en consola 
 
-		sc.nextLine();
 		System.out.println("introduce el numero de puertas");
 		int puertas = sc.nextInt();
 
@@ -79,7 +81,6 @@ public class Main {
 
 			System.out.println("introduce el tipo de moto ");
 			String estilo = sc.nextLine();
-			sc.nextLine();
 			vehiculos[Cont] = new Moto(velocidad, Marca, puertas, estilo);
 			Cont++;
 
@@ -110,5 +111,47 @@ public class Main {
 		}
 
 	}
+
+	private static void arrancarOPararVehiculo(Scanner sc) {
+
+		if (Cont == 0) {
+			System.out.println("No hay vehículos registrados.");
+			return;
+		}
+
+		System.out.print("Introduce el índice del vehículo (1-" + Cont + "): ");
+		int indice = sc.nextInt() - 1;
+
+		if (indice < 0 || indice >= Cont) {
+			System.out.println("Índice no válido.");
+			return;
+		}
+		System.out.println("quieres 1.arrancar o 2.parar?");
+		int eleccion = sc.nextInt();
+
+		if (eleccion == 1) {
+
+			vehiculos[indice].arrancar();
+
+		} else if (eleccion == 2) {
+
+			vehiculos[indice].parar();
+
+		} else {
+			System.out.println("opcion no valida");
+		}
+
+	}
+	private static void MostrarInfo() {
+		
+		 if (Cont == 0) {
+	            System.out.println("No hay vehículos registrados para mostrar información.");
+	            return;
+	        }
+
+	        for (int i = 0; i < Cont; i++) {
+	            System.out.println("Vehículo " + (i + 1) + ": " + vehiculos[i]);
+	        }
+	    }
 
 }

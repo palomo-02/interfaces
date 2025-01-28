@@ -7,8 +7,6 @@ import refuerzo1.Vehiculo;
 public class Main {
 	private static final int Max_productos = 5;
 	private static Producto[] productos = new Producto[Max_productos];
-
-	private static int cont = 0;
 	
 	public static void main(String[] args) {
 
@@ -62,7 +60,7 @@ public class Main {
 	private static void  registrarProducto() {
 		
 		
-		if(cont>=Max_productos) {
+		if() {
 			System.out.println("se ha llegado al maximo del array");
 			
 		}

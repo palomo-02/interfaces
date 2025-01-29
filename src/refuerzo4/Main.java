@@ -44,7 +44,8 @@ public class Main {
 
 			case 6:
 				System.out.println("saliendo del programa...");
-				default:System.out.println("opcion no valida");
+			default:
+				System.out.println("opcion no valida");
 
 			}
 
@@ -53,25 +54,24 @@ public class Main {
 	}
 
 	private static void BuscarMatricula(Scanner sc) {
-		
-		    System.out.println("Ingrese la matrícula a buscar:");
-			int matriculaBuscar = sc.nextInt();
 
-		    boolean encontrado = false;
+		System.out.println("Ingrese la matrícula a buscar:");
+		int matriculaBuscar = sc.nextInt();
 
-		    for (int i = 0; i < cont; i++) {
-		        if (vehiculos[i] != null && vehiculos[i].matricula == matriculaBuscar) {
-		            System.out.println("Vehículo encontrado: " + vehiculos[i]);
-		            encontrado = true;
-		            break; // Se detiene la búsqueda al encontrar el primer resultado
-		        }
-		    }
+		boolean encontrado = false;
 
-		    if (!encontrado) {
-		        System.out.println("No se encontró un vehículo con esa matrícula.");
-		    }
+		for (int i = 0; i < cont; i++) {
+			if (vehiculos[i] != null && vehiculos[i].matricula == matriculaBuscar) {
+				System.out.println("Vehículo encontrado: " + vehiculos[i]);
+				encontrado = true;
+				break; // Se detiene la búsqueda al encontrar el primer resultado
+			}
 		}
-	
+
+		if (!encontrado) {
+			System.out.println("No se encontró un vehículo con esa matrícula.");
+		}
+	}
 
 	private static void OrdenarMarca() {
 		// TODO Auto-generated method stub
@@ -84,24 +84,21 @@ public class Main {
 	}
 
 	private static void MostrarVehiculo() {
-	    boolean hayVehiculos = false;
+		boolean hayVehiculos = false;
 
-	    System.out.println("\n--- Vehículos Registrados ---");
+		System.out.println("\n--- Vehículos Registrados ---");
 
-	    for (int i = 0; i < cont; i++) {
-	        if (vehiculos[i] != null) {
-	            System.out.println("Vehiculo:"  +vehiculos[i]);
-	            hayVehiculos = true;
-	        }
-	    }
+		for (int i = 0; i < cont; i++) {
+			if (vehiculos[i] != null) {
+				System.out.println("Vehiculo:" + vehiculos[i]);
+				hayVehiculos = true;
+			}
+		}
 
-	    if (!hayVehiculos) {
-	        System.out.println("No hay vehículos registrados.");
-	    }
+		if (!hayVehiculos) {
+			System.out.println("No hay vehículos registrados.");
+		}
 	}
-
-
-	
 
 	private static void registrarVehiculo(Scanner sc) {
 
@@ -143,8 +140,6 @@ public class Main {
 		}
 
 	}
-
-	
 
 	private static void mostratMenu() {
 

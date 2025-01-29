@@ -13,7 +13,7 @@ public class Main {
 
 		var sc = new Scanner(System.in);
 
-		int opcion =0;
+		int opcion = 0;
 
 		do {
 			mostrarMenu(); // Mostrar el menú de opciones
@@ -24,7 +24,7 @@ public class Main {
 			case 1 -> registrarVehiculo(sc); // Registrar un nuevo vehículo
 			case 2 -> mostrarEstados(); // Mostrar el estado de todos los vehículos
 			case 3 -> arrancarOPararVehiculo(sc); // Arrancar o parar un vehículo
-			case 4->MostrarInfo();
+			case 4 -> MostrarInfo();
 			case 5 -> System.out.println("Saliendo del programa..."); // Salir
 			default -> System.out.println("Opción no válida. Inténtalo de nuevo.");
 			}
@@ -60,7 +60,7 @@ public class Main {
 		sc.nextLine();
 
 		System.out.println("introduce la marca del vehiculo");
-		String Marca = sc.nextLine();//no usar el nextLine con Strings, se repite en consola 
+		String Marca = sc.nextLine();// no usar el nextLine con Strings, se repite en consola
 
 		System.out.println("introduce el numero de puertas");
 		int puertas = sc.nextInt();
@@ -142,16 +142,17 @@ public class Main {
 		}
 
 	}
-	private static void MostrarInfo() {
-		
-		 if (Cont == 0) {
-	            System.out.println("No hay vehículos registrados para mostrar información.");
-	            return;
-	        }
 
-	        for (int i = 0; i < Cont; i++) {
-	            System.out.println("Vehículo " + (i + 1) + ": " + vehiculos[i]);
-	        }
-	    }
+	private static void MostrarInfo() {
+
+		if (Cont == 0) {
+			System.out.println("No hay vehículos registrados para mostrar información.");
+			return;
+		}
+
+		for (int i = 0; i < Cont; i++) {
+			System.out.println("Vehículo " + (i + 1) + ": " + vehiculos[i]);
+		}
+	}
 
 }
